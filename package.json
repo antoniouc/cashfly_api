@@ -1,0 +1,31 @@
+{
+  "name": "cashfly_api",
+  "description": "esta api funciona para poder hacer peticiones a la bd de la appweb cashfly",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antoniouc/cashfly_api.git"
+  },
+  "author": "Antonio Uc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antoniouc/cashfly_api/issues"
+  },
+  "homepage": "https://github.com/antoniouc/cashfly_api#readme",
+  
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.2"
+  }
+}
