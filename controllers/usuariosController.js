@@ -22,7 +22,7 @@ async function loginUsuario(req, res) {
         let datos = autenticador.verificarDatos(dataSegura);
         console.log(datos);
         const usuario = await _obtenerUsuarioPorNombre(datos.nombre);
-
+        console.log(usuario)
         if(!usuario){
             res.status(404).send('Usuario o contraseña incorrectos');
         }
