@@ -29,6 +29,43 @@ async function registrarMovimiento(req, res) {
     }
 }
 
+async function actualizarMovimiento(req, res) {
+
+    const { 
+        movimientoId,
+        UsuarioID,
+        Descripcion,
+        Total,
+        Fecha,
+        CategoriaID,
+        MetodoPagoID,
+        Nota,
+        Etiquetas,
+        Tipo 
+    } = req.body;
+    
+    try {
+        await movimientoService.editarMovimiento(
+            movimientoId,
+            UsuarioID,
+            Descripcion,
+            Total,
+            Fecha,
+            CategoriaID,
+            MetodoPagoID,
+            Nota,
+            Etiquetas,
+            Tipo
+        );
+        res.status(200).json({ message: 'Movimiento actualizado correctamente' });
+    } catch (error) {
+        console.error('Error al actualizar el movimiento:', error.message);
+        res.status(500).json({ message: 'Error al actualizar el movimiento' });
+    }
+}
+
+
+
 async function obtenerMovimientos(req, res) {
     UsuarioID = req.body;
     try {
@@ -40,7 +77,26 @@ async function obtenerMovimientos(req, res) {
     }
 }
 
+async function obtenerMovimientosid(req, res){
+
+   const {TransaccionId,UsuarioID} = req.body;
+   console.log(TransaccionId);
+   console.log(UsuarioID);
+   try {
+    const productos = await movimientoService.ObtenerMovimientosid(TransaccionId, UsuarioID);
+    console.log(productos);
+    res.status(200).json(productos);
+} catch (error) {
+    console.error('Error al obtener los productos del carrito:', error.message);
+    res.status(500).json({ message: 'Error al obtener los productos del carrito' });
+}
+
+
+}
+
 module.exports={
     registrarMovimiento,
-    obtenerMovimientos
+    obtenerMovimientos,
+    obtenerMovimientosid,
+    actualizarMovimiento
 }
