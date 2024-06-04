@@ -25,7 +25,7 @@ async function registrarMovimiento(
 }
 
 async function ObtenerMovimientos(UsuarioID) {
-  return await movimientomodel.ObtenerMovimientos(UsuarioID);
+  return await movimientomodel.obtenerMovimientos(UsuarioID);
 }
 
 module.exports = {

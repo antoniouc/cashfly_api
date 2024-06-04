@@ -42,7 +42,7 @@ async function obtenerMovimientos(usuarioID) {
         const [results] = await conexion.query(
             `
             SELECT *
-            FROM trasanccion
+            FROM transacciones
             WHERE usuarioID = ?
             `,
             [usuarioID]

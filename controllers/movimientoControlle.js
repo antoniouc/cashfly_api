@@ -30,9 +30,9 @@ async function registrarMovimiento(req, res) {
 }
 
 async function obtenerMovimientos(req, res) {
-    const { usuarioID } = req.params;
+    UsuarioID = req.body;
     try {
-        const productos = await movimientoService.ObtenerMovimientos(usuarioID);
+        const productos = await movimientoService.ObtenerMovimientos(UsuarioID);
         res.status(200).json(productos);
     } catch (error) {
         console.error('Error al obtener los productos del carrito:', error.message);
